@@ -1,0 +1,102 @@
+{
+    "layer": "top",
+    "reload_style_on_change" : true,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray","battery","backlight","pulseaudio","clock"],
+
+    "battery": {
+        "format": "<span rise='-2pt' size='11pt'>{icon}</span>",
+        "interval" : 1,
+        "format-charging" : "<span rise='-2pt' size='11pt'>󰚥</span>",
+        "format-full"  : "<span rise='-2pt' size='11pt'>󰁹</span>",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁"]
+    },
+    "clock": {
+        "format" : "{:%d %b · %I:%M}",
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "backlight":{
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 2
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "<span font='15'> </span>",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 3
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "pulseaudio": {
+        "format": "<span rise='-2pt' size='10pt'>{icon}</span>",
+        "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
+        "on-click": "pavucontrol -t 4",
+        "on-click-middle": "~/.config/hypr/scripts/volumecontrol.sh -o m",
+        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh -o i",
+        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh -o d",
+        "tooltip-format": "{icon} {desc} // {volume}%",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "sway/window": {
+        "format": "{title}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "🌎 $1",
+            "nvim(.*)": "  $1",
+            "p0wer@p0weronarch:~": "p0wer",
+        },
+        "separate-outputs": false 
+    },
+    "sway/workspaces" :{
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "1" : [],
+            "2" : [],
+            "3" : [],
+            "4" : [],
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "󰈹",
+            "3": "",
+            "4": "",
+        },
+    },
+    "custom/arch" :{
+      "format" :  "<span rise='-2pt' size='14pt'>󰣇</span>"
+    }
+}

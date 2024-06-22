@@ -1,0 +1,126 @@
+{
+    "layer": "top",
+    "reload_style_on_change" : true,
+    "margin": "5 10 0 10" ,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray","battery","backlight","pulseaudio"],
+
+    "battery": {
+        "format": "<span rise='-2pt' size='11pt'>{icon}</span>",
+        "interval" : 1,
+        "format-charging" : "<span rise='-2pt' size='11pt'>󰚥</span>",
+        "format-full"  : "<span rise='-2pt' size='11pt'>󰁹</span>",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁"]
+    },
+    "clock": {
+        "format" : "{:%d %b · %I:%M}",
+        "timezones" : ["Egypt","Australia/Sydney"],
+        "tooltip-format": "{tz_list}",
+        "format-alt": "{:%a, %d. %b  %I:%M}"
+    },
+    "backlight":{
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 2
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "<span font='15'> </span>",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 3
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "pulseaudio": {
+        "format": "<span rise='-2pt' size='10pt'>{icon}</span>",
+        "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
+        "on-click": "pavucontrol -t 4",
+        "on-click-middle": "~/.config/hypr/scripts/volumecontrol.sh -o m",
+        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh -o i",
+        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh -o d",
+        "tooltip-format": "{icon} {desc} // {volume}%",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "🌎 $1",
+            "nvim(.*)": "  $1",
+            "p0wer@p0weronarch:~": "p0wer",
+        },
+        "separate-outputs": false 
+    },
+    "hyprland/workspaces" :{
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*" : 4
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "󰈹",
+            "3": "",
+            "4": "",
+        },
+    },
+    "custom/arch" :{
+      "format" :  "<span rise='-2pt' size='14pt'>󰣇</span>"
+    }
+}
+
+
+
+
+// positions generated based on config.ctl //
+
+	"modules-left": ["custom/padd","","custom/padd"],
+	"modules-center": ["custom/padd","","custom/padd"],
+	"modules-right": ["custom/padd","","custom/padd"],
+
+
+// sourced from modules based on config.ctl //
+
+
+
+// positions generated based on config.ctl //
+
+	"modules-left": ["custom/padd","","custom/padd"],
+	"modules-center": ["custom/padd","","custom/padd"],
+	"modules-right": ["custom/padd","","custom/padd"],
+
+
+// sourced from modules based on config.ctl //
+
