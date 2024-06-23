@@ -2,9 +2,9 @@
     "layer": "top",
     "reload_style_on_change" : true,
     "margin": "5 10 0 10" ,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["tray","battery","backlight","pulseaudio"],
+    "modules-right": ["tray","battery","pulseaudio"],
 
     "battery": {
         "format": "<span rise='-2pt' size='11pt'>{icon}</span>",
@@ -55,7 +55,7 @@
     "pulseaudio": {
         "format": "<span rise='-2pt' size='10pt'>{icon}</span>",
         "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
-        "on-click": "pavucontrol -t 4",
+        "on-click": "pavucontrol",
         "on-click-middle": "~/.config/hypr/scripts/volumecontrol.sh -o m",
         "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh -o i",
         "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh -o d",
@@ -81,20 +81,19 @@
         "separate-outputs": false 
     },
     "hyprland/workspaces" :{
-        "disable-scroll": true,
         "all-outputs": true,
         "active-only": false,
         "on-click": "activate",
         "persistent-workspaces": {
             "*" : 4
         },
-        "format": "{icon}",
-        "format-icons": {
-            "1": "",
-            "2": "󰈹",
-            "3": "",
-            "4": "",
-        },
+    //  "format": "{icon}",
+    //    "format-icons": {
+    //       "1": "",
+    //        "2": "󰈹",
+    //        "3": "",
+    //       "4": "",
+    //    },
     },
     "custom/arch" :{
       "format" :  "<span rise='-2pt' size='14pt'>󰣇</span>"

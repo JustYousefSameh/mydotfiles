@@ -1,16 +1,18 @@
 @define-color border-color rgb(37, 36, 36);
-@define-color background-color rgb(24, 26, 37);
+@define-color background-color rgb(26,15,20);
+@define-color accent-color rgb(255,46 ,46);
 
 * {
     border-radius: 7px;
     font-weight: bold;
     font-size: 12px;
+    font-family : JetBrains Mono;
     min-height: 0px;
 }
 
 window#waybar {
     color: white;
-    background: @background-color;
+     background: transparent;
 }
 
 tooltip {
@@ -23,8 +25,12 @@ tooltip label {
 }
 
 
+#workspaces {
+ background-color : @background-color;
+}
+
 #workspaces button.active{
-    color: rgb(7, 143, 173);
+    color: white;
 }
 
 
@@ -35,12 +41,14 @@ tooltip label {
 
 
 #window{
-    margin-left: 7px;
+    margin-left: 0px;
 }
 
 #clock {
     padding: 0px 10px;
-    margin-right: 8px;
+    margin-right: 0px;
+    color : white;
+    background-color: @background-color;
 }
 
 #backlight{
@@ -75,13 +83,16 @@ tooltip label {
 }
 
 #pulseaudio{
-    margin-right: 8px;
+    background : @background-color;
+    border-radius: 0 7px 7px 0;
     padding-left: 3px;
-    padding-right: 7px;
+    padding-right: 12px;
 }
 
 
 #tray{
+    color: @accent-color;
+    background : @background-color;
     border-radius: 7px 0 0 7px;
     padding-left: 7px;
 }
