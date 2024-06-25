@@ -1,6 +1,7 @@
 {
     "layer": "top",
     "reload_style_on_change" : true,
+    "output" : ["LVDS-1","VGA-1"],
     "margin": "5 10 0 10" ,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
@@ -53,7 +54,7 @@
         "max-length": 10
     },
     "pulseaudio": {
-        "format": "<span rise='-2pt' size='10pt'>{icon}</span>",
+        "format": "<span rise='-2pt' size='19pt'>{icon}</span>",
         "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
         "on-click": "pavucontrol",
         "on-click-middle": "~/.config/hypr/scripts/volumecontrol.sh -o m",
