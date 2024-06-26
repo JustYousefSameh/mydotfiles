@@ -3,9 +3,22 @@
     "reload_style_on_change" : true,
     "output" : ["LVDS-1","VGA-1"],
     "margin": "5 10 0 10" ,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray","battery","pulseaudio"],
+    "modules-left": ["custom/arch","hyprland/workspaces"],
+    "modules-center": ["mpris"],
+    "modules-right": ["clock","tray","pulseaudio"],
+
+    "mpris": {
+	"format": "{player_icon} {dynamic}",
+	"format-paused": "{status_icon} <i>{dynamic}</i>",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	// "ignored-players": ["firefox"]
+},
 
     "battery": {
         "format": "<span rise='-2pt' size='11pt'>{icon}</span>",
@@ -15,7 +28,7 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁"]
     },
     "clock": {
-        "format" : "{:%d %b · %I:%M}",
+        "format" : "{:%I:%M %a}",
         "timezones" : ["Egypt","Australia/Sydney"],
         "tooltip-format": "{tz_list}",
         "format-alt": "{:%a, %d. %b  %I:%M}"
@@ -82,45 +95,16 @@
         "separate-outputs": false 
     },
     "hyprland/workspaces" :{
-        "all-outputs": true,
+        "all-outputs": false,
         "active-only": false,
         "on-click": "activate",
+        "format" : "",
         "persistent-workspaces": {
-            "*" : 4
+            "*" : 5
         },
-    //  "format": "{icon}",
-    //    "format-icons": {
-    //       "1": "",
-    //        "2": "󰈹",
-    //        "3": "",
-    //       "4": "",
-    //    },
     },
     "custom/arch" :{
-      "format" :  "<span rise='-2pt' size='14pt'>󰣇</span>"
+      "format" :  "<span rise='-2pt' size='19pt'>󰣇</span>"
     }
 }
-
-
-
-
-// positions generated based on config.ctl //
-
-	"modules-left": ["custom/padd","","custom/padd"],
-	"modules-center": ["custom/padd","","custom/padd"],
-	"modules-right": ["custom/padd","","custom/padd"],
-
-
-// sourced from modules based on config.ctl //
-
-
-
-// positions generated based on config.ctl //
-
-	"modules-left": ["custom/padd","","custom/padd"],
-	"modules-center": ["custom/padd","","custom/padd"],
-	"modules-right": ["custom/padd","","custom/padd"],
-
-
-// sourced from modules based on config.ctl //
 

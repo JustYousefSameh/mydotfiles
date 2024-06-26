@@ -12,7 +12,7 @@
 
 window#waybar {
     color: white;
-     background: transparent;
+    background: #1c141b;
 }
 
 tooltip {
@@ -24,13 +24,47 @@ tooltip label {
   color: rgb(255, 255, 225);
 }
 
-
 #workspaces {
- background-color : @background-color;
+ margin: 5px;
+}
+
+#workspaces button {
+    background: rgb(51, 50, 48);
+    color: rgb(140, 140, 140);
+    border-radius:50px;
+    margin: 0px 1px;
+    padding: 0px;
+    animation: narrow 300ms linear forwards; 
 }
 
 #workspaces button.active{
+    background: rgb(51, 50, 48);
     color: white;
+    border-radius:50px;
+    padding:0px 7px;
+    margin: 0px 1px;
+    animation: enlarge 300ms linear forwards;
+}
+
+
+
+@keyframes enlarge {
+    from {
+    padding: 0px;
+    }
+    to {
+        padding: 0px 7px;
+    }
+}
+
+@keyframes narrow {
+    from{
+    padding: 0px 7px;
+    }
+
+    to {
+        padding: 0px;
+    }
 }
 
 
@@ -45,10 +79,7 @@ tooltip label {
 }
 
 #clock {
-    padding: 0px 10px;
-    margin-right: 0px;
     color : white;
-    background-color: @background-color;
 }
 
 #backlight{
@@ -83,8 +114,6 @@ tooltip label {
 }
 
 #pulseaudio{
-    background : @background-color;
-    border-radius: 0 7px 7px 0;
     padding-left: 3px;
     padding-right: 12px;
 }
@@ -106,6 +135,5 @@ tooltip label {
 }
 
 #custom-arch{
-    padding-left: 12px;
-    padding-right: 10px;
+    padding: 0px 6px;
 }
