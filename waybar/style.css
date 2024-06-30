@@ -1,43 +1,47 @@
-@define-color border-color rgb(37, 36, 36);
-@define-color background #237a0b; 
-@define-color accent-color rgb(255,46 ,46);
-
-
 @import '../../.cache/wal/colors-waybar.css';
+
+@define-color foreground-color @color2;
+@define-color background-color @background;
+
 * {
-    font-family: "JetBrains Mono","Font Awesome 6 Free";
+    font-family: "Fira Sans SemiBold",SymbolsNerdFont;
     border-radius: 10px;
     font-weight: bold;
     font-size: 13px;
-    min-height: 0px;
+    min-height: 25px;
 }
 
 window#waybar {
-color: @foreground;
+    color: @foreground-color;
     background:transparent;
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+    background: rgba(43, 48, 59, 0.5);
+    border: 1px solid rgba(100, 114, 125, 0.5);
 }
 
 tooltip label {
-  color: rgb(255, 255, 225);
+    color: rgb(255, 255, 225);
 }
 
 #workspaces {
- margin: 0px 3px;
- padding: 0px;
- background: @background;
+    margin: 0px 3px;
+    padding: 0px 5px;
+    background: @background-color;
 }
 
 #workspaces button {
-    color: grey
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px;
+    color: @foreground-color;
+    border-radius: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #workspaces button.active{
-color: @foreground;
 }
 
 
@@ -53,20 +57,18 @@ color: @foreground;
 
 #clock {
     padding: 0px 12px;
-    background : @background;
-    margin: 0 3px;
-color: @foreground;
+    background : @background-color;
+    margin: 0px 3px;
 }
 
 #mpris {
-    background: @background;
-    color: @foreground;
+    background: @background-color;
     padding: 0 12px;
     margin: 0 3px;
 }
 
 #bluetooth{
-    background: @background;
+    background: @background-color;
     padding: 0 12px;
     margin: 0 3px;
 }
@@ -94,7 +96,6 @@ color: @foreground;
 #battery.warning:not(.charging) {
     background: #f53c3c;
     padding-left:3px;
-    color: white;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -104,30 +105,25 @@ color: @foreground;
 
 #taskbar{
     margin: 0 3px;
-    background :@background;
-    color: white;
+    background :@background-color;
 }
 
 #pulseaudio{
     padding: 0 12px;
     margin: 0 3px;
-    background: @background;
-color: @foreground;
+    background: @background-color;
 }
 
 #network{
     padding:0px 12px;
-    background: @background;
-color: @foreground;
+    background: @background-color;
     margin: 0 3px;
     min-width: 80px;
 }
 
 
 #tray{
-color: @foreground;
-    background : @background;
-    border-radius:10px;
+    background : @background-color;
     margin: 0 3px;
     padding: 0px 12px;
 }
@@ -142,6 +138,6 @@ color: @foreground;
 
 #custom-arch{
     margin: 0 3px;
-    background: @background;
+    background: @background-color;
     padding: 0px 12px;
 }
