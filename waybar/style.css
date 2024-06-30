@@ -1,10 +1,10 @@
 @define-color border-color rgb(37, 36, 36);
-@define-color background-color rgb(26,15,20);
+@define-color background-color #15193f; 
 @define-color accent-color rgb(255,46 ,46);
 
 * {
     font-family: Cairo;
-    border-radius: 7px;
+    border-radius: 10px;
     font-weight: bold;
     font-size: 13px;
     min-height: 0px;
@@ -12,7 +12,7 @@
 
 window#waybar {
     color: white;
-    background: #1c141b;
+    background:transparent;
 }
 
 tooltip {
@@ -25,46 +25,16 @@ tooltip label {
 }
 
 #workspaces {
- margin: 5px;
+ margin: 0px 3px;
+ padding: 0px;
+ background: @background-color;
 }
 
 #workspaces button {
-    background: rgb(51, 50, 48);
-    color: rgb(140, 140, 140);
-    border-radius:50px;
-    margin: 0px 1px;
-    padding: 0px;
-    animation: narrow 300ms linear forwards; 
 }
 
 #workspaces button.active{
-    background: rgb(51, 50, 48);
-    color: white;
-    border-radius:50px;
-    padding:0px 7px;
-    margin: 0px 1px;
-    animation: enlarge 300ms linear forwards;
-}
-
-
-
-@keyframes enlarge {
-    from {
-    padding: 0px;
-    }
-    to {
-        padding: 0px 7px;
-    }
-}
-
-@keyframes narrow {
-    from{
-    padding: 0px 7px;
-    }
-
-    to {
-        padding: 0px;
-    }
+    color: blue;
 }
 
 
@@ -79,7 +49,22 @@ tooltip label {
 }
 
 #clock {
+    padding: 0px 12px;
+    background : @background-color;
+    margin: 0 3px;
     color : white;
+}
+
+#mpris {
+    background: @background-color;
+    padding: 0 12px;
+    margin: 0 3px;
+}
+
+#bluetooth{
+    background: @background-color;
+    padding: 0 12px;
+    margin: 0 3px;
 }
 
 #backlight{
@@ -114,16 +99,25 @@ tooltip label {
 }
 
 #pulseaudio{
-    padding-left: 3px;
-    padding-right: 12px;
+    padding: 0 12px;
+    margin: 0 3px;
+    background: @background-color;
+}
+
+#network{
+    padding:0px 12px;
+    background: @background-color;
+    margin: 0 3px;
+    min-width: 80px;
 }
 
 
 #tray{
     color: @accent-color;
     background : @background-color;
-    border-radius: 7px 0 0 7px;
-    padding-left: 7px;
+    border-radius:10px;
+    margin: 0 3px;
+    padding: 0px 12px;
 }
 
 #tray.active{
@@ -135,5 +129,7 @@ tooltip label {
 }
 
 #custom-arch{
-    padding: 0px 6px;
+    margin: 0 3px;
+    background: @background-color;
+    padding: 0px 12px;
 }

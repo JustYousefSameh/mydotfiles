@@ -5,21 +5,18 @@
     "margin": "5 10 0 10" ,
     "modules-left": ["custom/arch","hyprland/workspaces"],
     "modules-center": ["mpris"],
-    "modules-right": ["clock","tray","pulseaudio"],
-
+    "modules-right": ["clock","tray","bluetooth","pulseaudio","network", ],
     "mpris": {
-	"format": "{player_icon} {dynamic}",
-	"format-paused": "{status_icon} <i>{dynamic}</i>",
-	"player-icons": {
-		"default": "▶",
-		"mpv": "🎵"
-	},
-	"status-icons": {
-		"paused": "⏸"
-	},
-	// "ignored-players": ["firefox"]
-},
-
+        "format-playing" : "{player_icon} {dynamic}",
+        "format-stopped": "Why so queit play some music",
+        "format-paused": "{status_icon} {dynamic}",
+        "player-icons": {
+            "default": "▶",
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+    },
     "battery": {
         "format": "<span rise='-2pt' size='11pt'>{icon}</span>",
         "interval" : 1,
@@ -28,7 +25,7 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁"]
     },
     "clock": {
-        "format" : "{:%I:%M %a}",
+        "format" : "{:%I:%M %p}",
         "timezones" : ["Egypt","Australia/Sydney"],
         "tooltip-format": "{tz_list}",
         "format-alt": "{:%a, %d. %b  %I:%M}"
@@ -49,12 +46,14 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "<span font='15'> </span>",
+        "format-ethernet": "<span rise='0pt' size='11pt'></span>   {bandwidthDownBytes}",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "Disconnected",
+        "interval": 1,
+        "on-click" : "kitty sh -c 'nmtui'",
         "max-length": 50
     },
     "tray": {
@@ -67,7 +66,7 @@
         "max-length": 10
     },
     "pulseaudio": {
-        "format": "<span rise='-2pt' size='19pt'>{icon}</span>",
+        "format": "<span rise='-2pt' size='19pt'>{icon}</span> {volume}",
         "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
         "on-click": "pavucontrol",
         "on-click-middle": "~/.config/hypr/scripts/volumecontrol.sh -o m",
@@ -76,8 +75,8 @@
         "tooltip-format": "{icon} {desc} // {volume}%",
         "scroll-step": 5,
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
+            "headphone": "󰋋",
+            "hands-free": "󰥰",
             "headset": "",
             "phone": "",
             "portable": "",
@@ -85,6 +84,15 @@
             "default": ["", "", ""]
         }
     },
+    "bluetooth": {
+	"format": "<span rise='-2pt' size='16pt'>󰂯</span>",
+	"format-disabled": "<span rise='-2pt' size='16pt'>󰂲</span>", // an empty format will hide the module
+	"format-connected": "<span rise='-2pt' size='16pt'>󰂱</span> {device_alias}",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click" : "blueman-manager"
+},
     "hyprland/window": {
         "format": "{title}",
         "rewrite": {
@@ -98,13 +106,14 @@
         "all-outputs": false,
         "active-only": false,
         "on-click": "activate",
-        "format" : "",
+        "format" : "{name}",
         "persistent-workspaces": {
             "*" : 5
         },
     },
     "custom/arch" :{
-      "format" :  "<span rise='-2pt' size='19pt'>󰣇</span>"
+        "on-click": "wlogout",
+        "format" :  "<span rise='-2pt' size='19pt'>󰣇</span>"
     }
 }
 
