@@ -1,9 +1,11 @@
 @define-color border-color rgb(37, 36, 36);
-@define-color background-color #15193f; 
+@define-color background #237a0b; 
 @define-color accent-color rgb(255,46 ,46);
 
+
+@import '../../.cache/wal/colors-waybar.css';
 * {
-    font-family: Cairo;
+    font-family: "JetBrains Mono","Font Awesome 6 Free";
     border-radius: 10px;
     font-weight: bold;
     font-size: 13px;
@@ -11,7 +13,7 @@
 }
 
 window#waybar {
-    color: white;
+color: @foreground;
     background:transparent;
 }
 
@@ -27,14 +29,15 @@ tooltip label {
 #workspaces {
  margin: 0px 3px;
  padding: 0px;
- background: @background-color;
+ background: @background;
 }
 
 #workspaces button {
+    color: grey
 }
 
 #workspaces button.active{
-    color: blue;
+color: @foreground;
 }
 
 
@@ -50,19 +53,20 @@ tooltip label {
 
 #clock {
     padding: 0px 12px;
-    background : @background-color;
+    background : @background;
     margin: 0 3px;
-    color : white;
+color: @foreground;
 }
 
 #mpris {
-    background: @background-color;
+    background: @background;
+    color: @foreground;
     padding: 0 12px;
     margin: 0 3px;
 }
 
 #bluetooth{
-    background: @background-color;
+    background: @background;
     padding: 0 12px;
     margin: 0 3px;
 }
@@ -77,12 +81,12 @@ tooltip label {
 
 #battery.charging {
     color: white;
-    /* background-color: #26A65B; */
+    /* background: #26A65B; */
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background: #ffffff;
         color: black;
     }
 }
@@ -98,38 +102,46 @@ tooltip label {
     animation-direction: alternate;
 }
 
+#taskbar{
+    margin: 0 3px;
+    background :@background;
+    color: white;
+}
+
 #pulseaudio{
     padding: 0 12px;
     margin: 0 3px;
-    background: @background-color;
+    background: @background;
+color: @foreground;
 }
 
 #network{
     padding:0px 12px;
-    background: @background-color;
+    background: @background;
+color: @foreground;
     margin: 0 3px;
     min-width: 80px;
 }
 
 
 #tray{
-    color: @accent-color;
-    background : @background-color;
+color: @foreground;
+    background : @background;
     border-radius:10px;
     margin: 0 3px;
     padding: 0px 12px;
 }
 
 #tray.active{
-    background-color: gainsboro;
+    background: gainsboro;
 }
 
 #tray.passive{
-    background-color: #f53c3c;
+    background: #f53c3c;
 }
 
 #custom-arch{
     margin: 0 3px;
-    background: @background-color;
+    background: @background;
     padding: 0px 12px;
 }
