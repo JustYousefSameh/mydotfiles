@@ -2,7 +2,7 @@
     "layer": "top",
     "reload_style_on_change" : true,
     "output" : ["LVDS-1","VGA-1"],
-    "margin": "5 10 0 10" ,
+    "margin": "10 10 0 10" ,
     "modules-left": ["custom/arch","hyprland/workspaces",],
     "modules-center": ["mpris"],
     "modules-right": ["clock","bluetooth","pulseaudio","network", ],
@@ -26,10 +26,14 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁"]
     },
     "clock": {
-        "format" : "{:%I:%M %p}",
-        "timezones" : ["Egypt","Australia/Sydney"],
+        "format" : "  {:%I:%M}",
+        "timezones" : ["Africa/Cairo","Australia/Sydney"],
         "tooltip-format": "{tz_list}",
-        "format-alt": "{:%a, %d. %b  %I:%M}"
+        "format-alt": "{:%d. %b %a %I:%M %p}",
+        "actions":  {
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+        }
     },
     "backlight":{
         "device": "intel_backlight",
@@ -47,7 +51,7 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "  {bandwidthDownBytes}",
+        "format-ethernet": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -88,10 +92,9 @@
         "format": "{icon}  {volume}",
         "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
         "on-click": "pavucontrol",
-        "on-click-middle": "~/.config/hypr/scripts/volumecontrol.sh -o m",
-        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh -o i",
-        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh -o d",
-        "tooltip-format": "{icon} {desc} // {volume}%",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "tooltip": false,
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -135,6 +138,7 @@
         },
     },
     "custom/arch" :{
+        "tooltip": false,
         "on-click": "wlogout",
         "format" :  "󰣇"
     }

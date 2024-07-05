@@ -17,12 +17,11 @@ window#waybar {
 }
 
 tooltip {
-    background: rgba(43, 48, 59, 0.5);
-    border: 1px solid rgba(100, 114, 125, 0.5);
+    background: @background-color;
 }
 
 tooltip label {
-    color: rgb(255, 255, 225);
+    color: @foreground-color;
 }
 
 #workspaces {
@@ -46,8 +45,8 @@ tooltip label {
 
 
 #mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+    background: @background-color;
+    border-bottom: 3px solid red;
 }
 
 
@@ -117,8 +116,8 @@ tooltip label {
 #network{
     padding:0px 12px;
     background: @background-color;
-    margin: 0 3px;
-    min-width: 80px;
+    margin: 0px 0px 0px 3px;
+    min-width: 150px;
 }
 
 
@@ -137,7 +136,7 @@ tooltip label {
 }
 
 #custom-arch{
-    margin: 0 3px;
+    margin: 0px 3px 0px 0px;
     background: @background-color;
     padding: 0px 12px;
 }

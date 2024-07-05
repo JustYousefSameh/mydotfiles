@@ -10,11 +10,12 @@ window {
 }
 
 button {
-    border-radius: 15;
+    border-radius: 15px;
+    outline-style: none;
 	text-decoration-color: #FFFFFF;
     color: #FFFFFF;
     margin: 5px 5px;
-	background-color: #1E1E1E;
+	background-color: @background;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
