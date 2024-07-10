@@ -5,7 +5,7 @@
     "margin": "10 10 0 10" ,
     "modules-left": ["custom/arch","hyprland/workspaces",],
     "modules-center": ["mpris"],
-    "modules-right": ["clock","bluetooth","pulseaudio","network", ],
+    "modules-right": ["tray","clock","bluetooth","pulseaudio","network", ],
     "mpris": {
         "format-playing" : "{player_icon} {dynamic}",
         "format-stopped": "Why so queit play some music",
@@ -130,8 +130,8 @@
         "on-click": "activate",
         "format" : "{icon}",
         "format-icons": {
-            "default": "",
-            "active": "",
+            "default": "",
+            "active": "",
         },
         "persistent-workspaces": {
             "*" : 5
