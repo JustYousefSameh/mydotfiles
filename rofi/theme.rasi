@@ -1,6 +1,6 @@
 * {
     red:                         rgba ( 220, 50, 47, 100 % );
-    selected-active-foreground:  var(background);
+    selected-active-foreground:  green;
     lightfg:                     rgba ( 88, 104, 117, 100 % );
     separatorcolor:              var(foreground);
     urgent-foreground:           var(red);
@@ -32,8 +32,8 @@
 element {
     padding: 1px ;
     cursor:  pointer;
-    spacing: 5px ;
-    border:  0;
+    spacing: 5px;
+    border:  0px;
 }
 element normal.normal {
     background-color: var(normal-background);

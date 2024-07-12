@@ -50,7 +50,7 @@
     },
     "network": {
         "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
         "format-ethernet": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
@@ -92,8 +92,8 @@
         "format": "{icon}  {volume}",
         "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
         "on-click": "pavucontrol",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
         "tooltip": false,
         "scroll-step": 5,
         "format-icons": {
@@ -125,8 +125,8 @@
         "separate-outputs": false 
     },
     "hyprland/workspaces" :{
-        "all-outputs": false,
-        "active-only": true,
+        "all-outputs": true,
+        "active-only": false,
         "on-click": "activate",
         "format" : "{icon}",
         "format-icons": {
