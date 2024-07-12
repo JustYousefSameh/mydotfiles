@@ -50,7 +50,7 @@
     },
     "network": {
         "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
         "format-ethernet": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
