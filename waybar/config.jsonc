@@ -5,7 +5,7 @@
     "margin": "10 10 0 10" ,
     "modules-left": ["custom/arch","hyprland/workspaces",],
     "modules-center": ["mpris"],
-    "modules-right": ["tray","clock","bluetooth","pulseaudio","network", ],
+    "modules-right": ["tray","clock","pulseaudio","network", ],
     "mpris": {
         "format-playing" : "{player_icon} {dynamic}",
         "format-stopped": "Why so queit play some music",
@@ -92,8 +92,8 @@
         "format": "{icon}  {volume}",
         "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
         "on-click": "pavucontrol",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
         "tooltip": false,
         "scroll-step": 5,
         "format-icons": {
@@ -122,10 +122,10 @@
             "nvim(.*)": "  $1",
             "p0wer@p0weronarch:~": "p0wer",
         },
-        "separate-outputs": false 
+        "separate-outputs": false
     },
     "hyprland/workspaces" :{
-        "all-outputs": true,
+        "all-outputs": false,
         "active-only": false,
         "on-click": "activate",
         "format" : "{icon}",
@@ -143,4 +143,3 @@
         "format" :  "󰣇"
     }
 }
-

@@ -1,7 +1,7 @@
 @import '../../.cache/wal/colors-waybar.css';
 
-@define-color foreground-color @foreground;
-@define-color background-color @color2;
+@define-color foreground-color @color2;
+@define-color background-color @background;
 
 * {
     font-family: "Fira Sans SemiBold",SymbolsNerdFont;
