@@ -9,6 +9,18 @@ return {
 				update_in_insert = false,
 				severity_sort = false,
 			})
+			require("lspconfig").tsserver.setup({
+				on_attach = function(client, bufnr)
+					vim.keymap.set("n", "<leader>fc", vim.lsp.buf.format, { buffer = bufnr })
+					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
+					vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+					vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { buffer = bufnr })
+					vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { buffer = bufnr })
+					vim.keymap.set("n", "<leader>dl", vim.diagnostic.setqflist, { buffer = bufnr })
+					vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { buffer = bufnr })
+				end,
+			})
 		end,
 	},
 	{ "hrsh7th/cmp-nvim-lsp" },
