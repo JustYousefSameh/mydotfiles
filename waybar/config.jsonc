@@ -1,11 +1,11 @@
 {
     "layer": "top",
+    "position" : "left",
     "reload_style_on_change" : true,
-    "output" : ["LVDS-1","VGA-1"],
-    "margin": "10 10 0 10" ,
-    "modules-left": ["custom/arch","hyprland/workspaces",],
-    "modules-center": ["mpris"],
-    "modules-right": ["tray","clock","bluetooth","pulseaudio","network", ],
+    "margin": "10 0 10 10" ,
+    "modules-left": ["custom/arch",],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio"],
     "mpris": {
         "format-playing" : "{player_icon} {dynamic}",
         "format-stopped": "Why so queit play some music",
@@ -26,7 +26,7 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁"]
     },
     "clock": {
-        "format" : "  {:%I:%M}",
+        "format" : "{:%I\n%M}",
         "timezones" : ["Africa/Cairo","Australia/Sydney"],
         "tooltip-format": "{tz_list}",
         "format-alt": "{:%d. %b %a %I:%M %p}",
