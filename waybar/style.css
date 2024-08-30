@@ -43,12 +43,10 @@ tooltip label {
 #workspaces button.active{
 }
 
-
 #mode {
     background: @background-color;
     border-bottom: 3px solid red;
 }
-
 
 #window{
     margin-left: 0px;
@@ -57,7 +55,6 @@ tooltip label {
 #clock {
     padding: 0px 12px;
     background : @background-color;
-    margin: 0px 3px;
 }
 
 #mpris {
@@ -82,7 +79,6 @@ tooltip label {
 
 #battery.charging {
     color: white;
-    /* background: #26A65B; */
 }
 
 @keyframes blink {

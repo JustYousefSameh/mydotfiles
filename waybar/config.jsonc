@@ -3,9 +3,9 @@
     "reload_style_on_change" : true,
     "output" : ["LVDS-1","VGA-1"],
     "margin": "10 10 0 10" ,
-    "modules-left": ["custom/arch","hyprland/workspaces",],
-    "modules-center": ["mpris"],
-    "modules-right": ["tray","clock","pulseaudio","network", ],
+    "modules-left": ["custom/arch","hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray","pulseaudio","network"],
     "mpris": {
         "format-playing" : "{player_icon} {dynamic}",
         "format-stopped": "Why so queit play some music",
