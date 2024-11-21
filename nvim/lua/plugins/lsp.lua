@@ -9,7 +9,7 @@ return {
 				update_in_insert = false,
 				severity_sort = false,
 			})
-			require("lspconfig").tsserver.setup({
+			require("lspconfig").ts_ls.setup({
 				on_attach = function(client, bufnr)
 					vim.keymap.set("n", "<leader>fc", vim.lsp.buf.format, { buffer = bufnr })
 					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })

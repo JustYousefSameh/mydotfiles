@@ -5,19 +5,67 @@
     "margin": "10 10 0 10" ,
     "modules-left": ["custom/arch","hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["tray","pulseaudio","network"],
+    "modules-right": ["tray","pulseaudio","network","custom/notification",],
+      "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
     "mpris": {
         "format-playing" : "{player_icon} {dynamic}",
         "format-stopped": "Why so queit play some music",
         "format-paused": "{status_icon} {dynamic}",
-        "title-len" : 50,
+        "title-len" : 30,
+        "dynamic-len" : 40,
+        "dynamic-order":["title", "artist", "album"],
+       // "interval":1,
         "player-icons": {
-            "default": "▶",
+            "default": "⏸",
         },
         "status-icons": {
-            "paused": "⏸"
+            "paused": "▶"
         },
     },
+    "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "interval": 10,
+    "consume-icons": {
+        "on": " " // Icon shows only when "consume" is on
+    },
+    "random-icons": {
+        "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+        "on": " "
+    },
+    "repeat-icons": {
+        "on": " "
+    },
+    "single-icons": {
+        "on": "1 "
+    },
+    "state-icons": {
+        "paused": "",
+        "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+},
     "battery": {
         "format": "<span rise='-2pt' size='11pt'>{icon}</span>",
         "interval" : 1,
@@ -26,7 +74,8 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁"]
     },
     "clock": {
-        "format" : "  {:%I:%M}",
+        "format" : "{:%d %b %a · %I:%M}",
+        // "format" : "  {:%d %b %a · %I:%M}",
         "timezones" : ["Africa/Cairo","Australia/Sydney"],
         "tooltip-format": "{tz_list}",
         "format-alt": "{:%d. %b %a %I:%M %p}",
@@ -51,15 +100,16 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
-        "format-ethernet": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
+        // "format-ethernet": "  {bandwidthUpBytes}     {bandwidthDownBytes}",
+        "format-ethernet": "",
         "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "Disconnected",
-        "interval": 1,
+        // "interval": 1,
         "on-click" : "kitty sh -c 'nmtui'",
-        "max-length": 50
+        // "max-length": 50
     },
     "tray": {
         "icon-size": 15,
@@ -89,7 +139,7 @@
         }
     },
     "pulseaudio": {
-        "format": "{icon}  {volume}",
+        "format": "{icon}",
         "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
         "on-click": "pavucontrol",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
@@ -97,8 +147,8 @@
         "tooltip": false,
         "scroll-step": 5,
         "format-icons": {
-            "headphone": "",
-            "hands-free": "󰥰",
+            // "headphone": "",
+            // "hands-free": "󰥰",
             "headset": "",
             "phone": "",
             "portable": "",
@@ -128,7 +178,8 @@
         "all-outputs": false,
         "active-only": false,
         "on-click": "activate",
-        "format" : "{icon}",
+        "format" : "{icon}{windows}",
+
         "format-icons": {
             "default": "",
             "active": "",

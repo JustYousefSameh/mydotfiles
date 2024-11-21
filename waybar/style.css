@@ -1,19 +1,28 @@
 @import '../../.cache/wal/colors-waybar.css';
 
-@define-color foreground-color @color2;
-@define-color background-color @background;
+@define-color foreground-color rgb(222, 222, 222);
+@define-color background-color #111111;
 
 * {
-    font-family: "Fira Sans SemiBold",SymbolsNerdFont;
-    border-radius: 10px;
+    font-family: "Fira Sans",SymbolsNerdFont;
     font-weight: bold;
-    font-size: 13px;
-    min-height: 25px;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 window#waybar {
     color: @foreground-color;
-    background:transparent;
+    background: @background-color;
+}
+
+#custom-notification {
+    padding: 0px 8px;
+    margin: 0px 4px 0px 0px;
+}
+
+#custom-notification ,#pulseaudio ,#network, #tray
+{
+    padding: 0px 5px;
 }
 
 tooltip {
@@ -25,22 +34,39 @@ tooltip label {
 }
 
 #workspaces {
-    margin: 0px 3px;
-    padding: 0px 5px;
+    margin: 0px 0px;
+    padding: 0px 3px;
     background: @background-color;
 }
 
 #workspaces button {
     box-shadow: none;
     text-shadow: none;
-    padding: 0px;
-    color: @foreground-color;
-    border-radius: 9px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding : 0px;
+    color : @foreground-color;
+    background: @background-color;
+    /* border-radius: 100px; */
+    /* margin : 3px 3px; */
+    /* animation-name : shrink; */
+    /* animation-duration : 300ms; */
+    /* animation-fill-mode : forwards; */
 }
 
 #workspaces button.active{
+    /* animation-name : expand; */
+    /* animation-duration : 300ms; */
+    /* animation-fill-mode : forwards; */
+}
+
+
+@keyframes shrink {
+    from { padding: 0px 12px;}
+    to { padding: 0px 3px;}
+}
+
+@keyframes expand {
+    from{ padding: 0px 3px;}
+    to { padding: 0px 12px;}
 }
 
 #mode {
@@ -59,7 +85,7 @@ tooltip label {
 
 #mpris {
     background: @background-color;
-    padding: 0 12px;
+    padding: 0px 12px;
     margin: 0 3px;
 }
 
@@ -81,12 +107,6 @@ tooltip label {
     color: white;
 }
 
-@keyframes blink {
-    to {
-        background: #ffffff;
-        color: black;
-    }
-}
 
 #battery.warning:not(.charging) {
     background: #f53c3c;
@@ -104,23 +124,20 @@ tooltip label {
 }
 
 #pulseaudio{
-    padding: 0 12px;
-    margin: 0 3px;
+    margin: 0px 0px;
     background: @background-color;
 }
 
 #network{
-    padding:0px 12px;
     background: @background-color;
-    margin: 0px 0px 0px 3px;
-    min-width: 150px;
+    margin: 0px 0px 0px 0px;
+    /* min-width: 150px; */
 }
 
 
 #tray{
     background : @background-color;
-    margin: 0 3px;
-    padding: 0px 12px;
+    margin: 0px 0px;
 }
 
 #tray.active{
