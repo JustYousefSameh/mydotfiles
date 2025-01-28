@@ -1,0 +1,22 @@
+MenuBar=Disabled
+
+[General]
+OpenExternallyCalledFolderInNewTab=true
+RememberOpenedTabs=false
+ShowFullPathInTitlebar=true
+Version=202
+ViewPropsTimestamp=2024,6,26,3,15,29.46
+
+[KFileDialog Settings]
+Places Icons Auto-resize=true
+Places Icons Static Size=16
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[PlacesPanel]
+IconSize=-1
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail

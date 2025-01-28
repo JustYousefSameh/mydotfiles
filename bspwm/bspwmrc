@@ -1,0 +1,20 @@
+#! /bin/sh
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc config border_width         0
+bspc config window_gap           8
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+bspc monitor LVDS-0 -d 1 2 3 4 5
+bspc monitor VGA-0 -d 6 7 8 9 10
+
+#AutoStart applications
+bspc wm -O LVDS-0 VGA-0 &
+sxhkd &
+/home/p0wer/.config/polybar/lunch_polybar.sh &
+nitrogen --restore &
+picom &

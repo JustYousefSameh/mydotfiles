@@ -6,23 +6,24 @@
 * {
     font-family: "Fira Sans",SymbolsNerdFont;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 0px;
     font-size: 14px;
 }
 
 window#waybar {
     color: @foreground-color;
-    background: @background-color;
-}
-
-#custom-notification {
-    padding: 0px 8px;
-    margin: 0px 4px 0px 0px;
+    background: transparent;
 }
 
 #custom-notification ,#pulseaudio ,#network, #tray
 {
     padding: 0px 5px;
+}
+
+#custom-notification {
+    padding: 0px 12px 0px 8px;
+    border-radius: 0px 10px 10px 0px;
+    background : @background-color;
 }
 
 tooltip {
@@ -35,7 +36,8 @@ tooltip label {
 
 #workspaces {
     margin: 0px 0px;
-    padding: 0px 3px;
+    padding: 0px 8px;
+    border-radius: 10px;
     background: @background-color;
 }
 
@@ -81,6 +83,7 @@ tooltip label {
 #clock {
     padding: 0px 12px;
     background : @background-color;
+    border-radius: 10px;
 }
 
 #mpris {
@@ -124,7 +127,9 @@ tooltip label {
 }
 
 #pulseaudio{
-    margin: 0px 0px;
+    margin: 0px 0px 0px 8px;
+    padding: 0px 8px 0px 12px;
+    border-radius: 10px 0px 0px 10px;
     background: @background-color;
 }
 
@@ -136,8 +141,10 @@ tooltip label {
 
 
 #tray{
-    background : @background-color;
+    padding: 0px 8px;
     margin: 0px 0px;
+    border-radius: 10px;
+    background : @background-color;
 }
 
 #tray.active{
@@ -151,5 +158,6 @@ tooltip label {
 #custom-arch{
     margin: 0px 3px 0px 0px;
     background: @background-color;
+    border-radius: 10px;
     padding: 0px 12px;
 }

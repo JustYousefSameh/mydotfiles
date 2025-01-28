@@ -2,7 +2,7 @@
     "layer": "top",
     "reload_style_on_change" : true,
     "output" : ["LVDS-1","VGA-1"],
-    "margin": "10 10 0 10" ,
+    "margin": "5 5 0 5" ,
     "modules-left": ["custom/arch","hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["tray","pulseaudio","network","custom/notification",],
@@ -140,7 +140,7 @@
     },
     "pulseaudio": {
         "format": "{icon}",
-        "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
+        // "format-muted": "<span rise='-2pt' size='11pt'>婢</span>",
         "on-click": "pavucontrol",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
