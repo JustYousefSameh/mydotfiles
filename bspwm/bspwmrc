@@ -9,12 +9,17 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
+bspc rule -a MyOpenGL state=floating
+bspc rule -a pavucontrol state=floating
+
+
 bspc monitor LVDS-0 -d 1 2 3 4 5
 bspc monitor VGA-0 -d 6 7 8 9 10
 
-#AutoStart applications
 bspc wm -O LVDS-0 VGA-0 &
 sxhkd &
-/home/p0wer/.config/polybar/lunch_polybar.sh &
+lxpolkit &
+eww open bar&
+dunst &
 nitrogen --restore &
 picom &

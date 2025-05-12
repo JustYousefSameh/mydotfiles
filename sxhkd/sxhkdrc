@@ -26,13 +26,19 @@ super + e
 super + p
     maim -s | xclip -selection clipboard -t image/png
 
+super + c
+    cursor
+
+super + shift + y
+    mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
+
 #
 # bspwm hotkeys
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
+# super + alt + {q,r}
+# 	bspc {quit,wm -r}
 
 # close and kill
 super + q
@@ -95,10 +101,16 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {1-9,0}
+    bspc desktop -f '^{1-9,10}'
 
+
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}'
+
+# focus or send to the given desktop
+	# bspc {desktop -f,node -d} '^{1-9,10}' &&eww update activeWS='^{1-9,10}'
+ #    super + {_,shift + }{1-9,0}
 #
 # preselect
 #
