@@ -10,9 +10,9 @@ local colors = {
 
 local bubbles_theme = {
     normal = {
-        a = { --[[  fg = colors.black, bg = colors.violet  ]] },
+        a = { bg = "none" },
         b = { --[[  fg = colors.white, bg = colors.grey  ]] },
-        c = { --[[  fg = colors.white  ]] },
+        c = { --[[  fg = colors.white  ]] bg = 'none' },
     },
 
     insert = { a = { --[[  fg = colors.black, bg = colors.blue  ]] } },
@@ -26,20 +26,81 @@ local bubbles_theme = {
     },
 }
 
+local theme = {
+    normal = {
+        a = { bg = "None", gui = "bold" },
+        b = { bg = "None", gui = "bold" },
+        c = { bg = "None", gui = "bold" },
+        x = { bg = "None", gui = "bold" },
+        y = { bg = "None", gui = "bold" },
+        z = { bg = "None", gui = "bold" },
+    },
+    insert = {
+        a = { bg = "None", gui = "bold" },
+        b = { bg = "None", gui = "bold" },
+        c = { bg = "None", gui = "bold" },
+        x = { bg = "None", gui = "bold" },
+        y = { bg = "None", gui = "bold" },
+        z = { bg = "None", gui = "bold" },
+    },
+    visual = {
+        a = { bg = "None", gui = "bold" },
+        b = { bg = "None", gui = "bold" },
+        c = { bg = "None", gui = "bold" },
+        x = { bg = "None", gui = "bold" },
+        y = { bg = "None", gui = "bold" },
+        z = { bg = "None", gui = "bold" },
+    },
+    replace = {
+        a = { bg = "None", gui = "bold" },
+        b = { bg = "None", gui = "bold" },
+        c = { bg = "None", gui = "bold" },
+        x = { bg = "None", gui = "bold" },
+        y = { bg = "None", gui = "bold" },
+        z = { bg = "None", gui = "bold" },
+    },
+    command = {
+        a = { bg = "None", gui = "bold" },
+        b = { bg = "None", gui = "bold" },
+        c = { bg = "None", gui = "bold" },
+        x = { bg = "None", gui = "bold" },
+        y = { bg = "None", gui = "bold" },
+        z = { bg = "None", gui = "bold" },
+    },
+    inactive = {
+        a = { bg = "None", gui = "bold" },
+        b = { bg = "None", gui = "bold" },
+        c = { bg = "None", gui = "bold" },
+        x = { bg = "None", gui = "bold" },
+        y = { bg = "None", gui = "bold" },
+        z = { bg = "None", gui = "bold" },
+    },
+}
+
+
 return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
+            local auto = require "lualine.themes.auto"
+            local lualine_modes = { "insert", "normal", "visual", "command", "replace", "inactive", "terminal" }
+            for _, field in ipairs(lualine_modes) do
+                if auto[field] and auto[field].c then
+                    auto[field].c.bg = "None"
+                end
+            end
+
             require("lualine").setup {
-                -- options = {
-                --     theme = bubbles_theme,
-                --     component_separators = '',
-                --     -- section_separators = { left = '', right = '' },
-                -- },
+                options = {
+                    theme = bubbles_theme,
+                    component_separators = "",
+                    section_separators = { left = "", right = "" },
+                    always_divide_middle = false,
+                },
                 sections = {
                     lualine_a = { { 'mode', --[[  separator = { left = '' }, ]] right_padding = 2 } },
-                    lualine_b = { 'filename', 'branch' },
+                    lualine_b = { 'filename', 'branch', 'diagnostics' },
                     lualine_c = {
                         '%=', --[[ add your center compoentnts here in place of this comment ]]
                     },

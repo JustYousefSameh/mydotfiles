@@ -4,7 +4,6 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-
         },
         lazy = false,
         config = function()
@@ -34,30 +33,30 @@ return {
                 },
             }
 
-            -- lsp.ts_ls.setup {
-            --     init_options = {
-            --         plugins = {
-            --             {
-            --                 name = "@vue/typescript-plugin",
-            --                 location = "/home/p0wer/.local/share/nvim/mason/bin/typescript-language-server",
-            --                 languages = { "javascript", "typescript", "vue" },
-            --             },
-            --         },
-            --     },
-            --     filetypes = {
-            --         "javascript",
-            --         "typescript",
-            --         "vue",
-            --     },
-            --     on_attach = function(client, bufnr)
-            --         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
-            --         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
-            --         vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
-            --         vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { buffer = bufnr })
-            --         vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { buffer = bufnr })
-            --         vim.keymap.set("n", "<leader>dl", vim.diagnostic.setqflist, { buffer = bufnr })
-            --     end,
-            -- }
+            lsp.ts_ls.setup {
+                init_options = {
+                    plugins = {
+                        {
+                            name = "@vue/typescript-plugin",
+                            location = "/home/p0wer/.local/share/nvim/mason/bin/typescript-language-server",
+                            languages = { "javascript", "typescript", "vue" },
+                        },
+                    },
+                },
+                filetypes = {
+                    "javascript",
+                    "typescript",
+                    "vue",
+                },
+                on_attach = function(client, bufnr)
+                    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
+                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
+                    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+                    vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { buffer = bufnr })
+                    vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { buffer = bufnr })
+                    vim.keymap.set("n", "<leader>dl", vim.diagnostic.setqflist, { buffer = bufnr })
+                end,
+            }
         end,
     },
 }

@@ -6,33 +6,72 @@ return {
     opts = {
         bigfile = { enabled = true },
         dashboard = { enabled = true },
-        explorer = { enabled = false },
-        indent = { enabled = false },
+        explorer = { enabled = true },
+        indent = {
+            enabled = true,
+            indent = {
+                priority = 1,
+                enabled = true,       -- enable indent guides
+                char = "│",
+                only_scope = false,   -- only show indent guides of the scope
+                only_current = false, -- only show indent guides in the current window
+                hl = "SnacksIndent", ---@type string|string[] hl groups for indent guides
+                -- can be a list of hl groups to cycle through
+                -- hl = {
+                --     "SnacksIndent1",
+                --     "SnacksIndent2",
+                --     "SnacksIndent3",
+                --     "SnacksIndent4",
+                --     "SnacksIndent5",
+                --     "SnacksIndent6",
+                --     "SnacksIndent7",
+                --     "SnacksIndent8",
+                -- },
+            },
+        },
         input = { enabled = true },
-        notifier = { enabled = true },
+        notifier = { enabled = false },
         quickfile = { enabled = true },
-        scope = { enabled = true },
+        scope = { enabled = false },
         scroll = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
+        scratch = {
+            enabled = true,
+            layout = {
+                layout =
+                {
+                    width = 100,
+                    height = 30,
+                    bo = { buftype = "", buflisted = false, bufhidden = "hide", swapfile = false },
+                    minimal = false,
+                    noautocmd = false,
+                    -- position = "right",
+                    zindex = 20,
+                    wo = { winhighlight = "NormalFloat:Normal" },
+                    border = "none",
+                    title_pos = "center",
+                    footer_pos = "center",
+                }
+            }
+        },
         picker = {
             enabled = true,
-            prompt = "",
-            sources = {},
-            focus = "input",
-            matcher = {
-                fuzzy = true,          -- use fuzzy matching
-                smartcase = true,      -- use smartcase
-                ignorecase = true,     -- use ignorecase
-                sort_empty = false,    -- sort results when the search string is empty
-                filename_bonus = true, -- give bonus for matching file names (last part of the path)
-                file_pos = true,       -- support patterns like `file:line:col` and `file:line`
-                -- the bonusses below, possibly require string concatenation and path normalization,
-                -- so this can have a performance impact for large lists and increase memory usage
-                cwd_bonus = true,      -- give bonus for matching files in the cwd
-                frecency = false,      -- frecency bonus
-                history_bonus = false, -- give more weight to chronological order
-            },
+            -- layout = {
+            --     layout = {
+            --         box = "horizontal",
+            --         width = 0.8,
+            --         min_width = 120,
+            --         height = 0.8,
+            --         border = "solid",
+            --         {
+            --             box = "vertical",
+            --             { win = "input", height = 1,     border = "none" },
+            --             { win = "list",  border = "none" },
+            --         },
+            --         { win = "preview", border = "none", width = 0.5 },
+            --     },
+            -- }
         }
     },
     keys = {
@@ -51,10 +90,15 @@ return {
             desc = "Buffers",
         },
         {
+            "<leader>S",
+            function()
+                Snacks.scratch()
+            end,
+        },
+        {
             "<leader>e",
             function()
-                local api = require("nvim-tree.api")
-                api.tree.toggle()
+                Snacks.explorer()
             end,
             desc = "File Explorer",
         },

@@ -9,8 +9,9 @@ return {
         config = function()
             require("catppuccin").setup({
                 flavor = 'mocha',
+                treesitter = true,
                 -- cmp = true,
-                -- treesitter = true,
+                blink = true,
                 notify = true,
                 term_colors = true,
                 transparent_background = true,
@@ -58,4 +59,18 @@ return {
         lazy = true,
         dependencies = { "rktjmp/lush.nvim" },
     },
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = true,
+        opts = ...
+    },
+    {
+        'sainnhe/sonokai',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            -- vim.g.sonokai_enable_italic = true
+        end,
+    }
 }

@@ -7,7 +7,12 @@ return {
                 java = { lsp_format },
                 dart = { lsp_format },
                 vue = { lsp_format },
+                javascript = { lsp_format },
+                json = { "prettier" },
+                css = { "prettier" },
+                scss = { "prettier" },
                 xml = { "xmlformatter" }
+
             },
             format_on_save = {
                 timeout_ms = 500,

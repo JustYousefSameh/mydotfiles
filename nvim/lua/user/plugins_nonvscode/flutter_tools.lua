@@ -24,7 +24,15 @@ return {
                     },
                 },
                 widget_guides = {
-                    enabled = true,
+                    enabled = false,
+                },
+                closing_tags = {
+                    highlight = "ErrorMsg", -- highlight for the closing tag
+                    prefix = ">",           -- character to use for close tag e.g. > Widget
+                    priority = 10,          -- priority of virtual text in current line
+                    -- consider to configure this when there is a possibility of multiple virtual text items in one line
+                    -- see `priority` option in |:help nvim_buf_set_extmark| for more info
+                    enabled = false -- set to false to disable
                 },
                 lsp = {
                     color = { -- show the derived colours for dart variables
@@ -47,7 +55,7 @@ return {
                     settings = {
                         showTodos = true,
                         completeFunctionCalls = true,
-                        analysisExcludedFolders = vim.fn.expand("C:/Users/p0wer/AppData/Local/Pub/Cache"),
+                        -- analysisExcludedFolders = vim.fn.expand("C:/Users/p0wer/AppData/Local/Pub/Cache"),
                         renameFilesWithClasses = "prompt", -- "always"
                         enableSnippets = true,
                         updateImportsOnRename = true,      -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
